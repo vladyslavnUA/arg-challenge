@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require('path');
-
-const PORT = process.env.PORT || 3001;
+require('dotenv').config();
+const PORT = process.env.PORT;
 
 const app = express();
 
@@ -9,7 +9,7 @@ app.get("/api", (req, res) => {
     res.json({ message: "Hello from server!" });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT || 3001, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
